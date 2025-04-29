@@ -1,7 +1,9 @@
 <?php
+use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+#[CoversMethod(Holiday::class, "create")]
 final class HolidayTest extends TestCase
 {
     protected function setUp(): void
