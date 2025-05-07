@@ -3,6 +3,7 @@ use PHPUnit\Framework\Attributes\CoversMethod;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
 
+#[CoversMethod(UserBankAccount::class, "")]
 final class UserBankAccountTest extends TestCase
 {
     protected function setUp(): void
@@ -78,7 +79,7 @@ final class UserBankAccountTest extends TestCase
         ->method("lasterror");
         $this->db->expects($this->once())
         ->method("commit");
-        $this->db->expects($this->any())
+        $this->db->expects($this->never())
         ->method("rollback");
         
         $this->assertSame(10, $user_bank_account->update($user, $notrigger));
